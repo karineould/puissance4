@@ -1,12 +1,10 @@
 import React from 'react';
+import Main from "./Main";
 
 
 const App = () =>
         <div>
-
-            <h1>Puissance 4</h1>
-            <p>Click play</p>
-            <button>PLAY</button>
+            <Main />
         </div>;
 
 
