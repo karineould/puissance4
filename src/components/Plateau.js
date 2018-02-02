@@ -12,19 +12,14 @@ export default class Plateau extends React.Component {
             winner: "",
         };
 
-        // this.getDefaultSize = this.getDefaultSize.bind(this);
         this.setMove = this.setMove.bind(this);
         this.play = this.play.bind(this);
-        this.getCurrentWinner = this.getCurrentWinner.bind(this);
+        this.checkIfWinner = this.checkIfWinner.bind(this);
         this.togglePlayer = this.togglePlayer.bind(this);
         this.setPlateau = this.setPlateau.bind(this);
         this.newPlateau = this.newPlateau.bind(this);
         this.newCount = this.newCount.bind(this);
     }
-
-    // getDefaultSize = () => {
-    //     return { width: 7, height: 6 };
-    // };
 
     setMove(plateau, player, row, col){
         for (var i = 0; i < plateau.length; i++) {
@@ -44,7 +39,7 @@ export default class Plateau extends React.Component {
             return 0;
     };
 
-    getCurrentWinner(plateau, player, move){
+    checkIfWinner(plateau, player, move){
         let rows = plateau.length;
         let cols = plateau[0].length;
 
@@ -121,26 +116,25 @@ export default class Plateau extends React.Component {
         }
 
         let move = this.setMove(plateau, player, row, column);
-        let newPlateau = this.setPlateau(plateau, player, move);
-        let newWinner = this.getCurrentWinner(newPlateau, player, move);
-        let newPlayer = this.togglePlayer(player);
+        let updatedPlateau = this.setPlateau(plateau, player, move);
+        let updatedPlayer = this.togglePlayer(player);
+        let winner = this.checkIfWinner(updatedPlateau, player, move);
 
-        if (newWinner)
-            setTimeout(function() { alert(newWinner) }, 0);
+        if (winner)
+            setTimeout(function() { alert(winner) }, 0);
 
         this.setState({
-            plateau: newPlateau,
-            player: newPlayer,
-            winner: newWinner,
+            plateau: updatedPlateau,
+            player: updatedPlayer,
+            winner: winner,
         });
 
     };
 
     render(){
-        let rowsComponents = this.state.plateau.map(function(pieces, i) {
+        let rows = this.state.plateau.map(function(pieces, i) {
             return <Row
                 onClick={this.play}
-                rowIndex={i}
                 key={i}
                 pieces={pieces} />
         }, this);
@@ -154,7 +148,7 @@ export default class Plateau extends React.Component {
                 </p>
                 <table>
                     <tbody>
-                        {rowsComponents}
+                        {rows}
                     </tbody>
                 </table>
             </div>
