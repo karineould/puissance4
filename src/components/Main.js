@@ -1,25 +1,10 @@
 import React from 'react';
 import Modal from './Modal'
 import Plateau from "./Plateau";
+import { connect } from 'react-redux';
+import { gamers } from "../redux";
 
-export default class Main extends React.Component {
-
-    constructor(props){
-        super(props);
-
-        this.state = {
-            showModal: false
-        };
-        // this.startGame = this.startGame.bind(this)
-    }
-
-    // startGame = () => {
-    //     this.setState({
-    //        showModal: true,
-    //     });
-    //
-    //     console.log(this.state.showModal)
-    // };
+export class Main extends React.Component {
 
     render(){
         const style = {
@@ -30,6 +15,8 @@ export default class Main extends React.Component {
         return (
             <div style={style}>
                 <h1>Puissance 4</h1>
+                <h1>{this.props.state.nbGamer}</h1>
+                <h1>{this.props.state.nbRound}</h1>
                 <button
                     className="btn btn-primary"
                     data-target="#myModal"
@@ -38,12 +25,20 @@ export default class Main extends React.Component {
                 </button>
                 <Modal />
 
-                <div>
-                    <Plateau
-                        width={6}
-                        height={7} />
-                </div>
+                <Plateau
+                    width={6}
+                    height={7} />
+
             </div>
         );
     }
+
+
 }
+
+const mapStateToProps = function(state) {
+    return {state};
+};
+
+
+export default connect(mapStateToProps)(Main)

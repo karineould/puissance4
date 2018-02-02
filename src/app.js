@@ -4,13 +4,14 @@ import { AppContainer } from 'react-hot-loader';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import gamers from './redux/index';
 // import reducer from './redux';
 import App from './components/App';
 import './index.html';
 
-// const store = createStore(reducer, compose(
-//     applyMiddleware(thunk)
-// ));
+const store = createStore(gamers, compose(
+    applyMiddleware(thunk)
+));
 
 
 const container = document.getElementById('app-container');
@@ -18,7 +19,9 @@ const container = document.getElementById('app-container');
 // Render App
 ReactDOM.render(
     <AppContainer>
-        <App />
+        <Provider store={store} >
+            <App />
+        </Provider>
     </AppContainer>
     ,container
 );
@@ -29,7 +32,9 @@ if (module.hot) {
     module.hot.accept('./components/App', () => {
         ReactDOM.render(
             <AppContainer>
-                <App />
+                <Provider store={store} >
+                    <App />
+                </Provider>
             </AppContainer>
             ,container
         );
