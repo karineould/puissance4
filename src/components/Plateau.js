@@ -10,6 +10,8 @@ export default class Plateau extends React.Component {
             plateau: this.newPlateau(this.props.width, this.props.height),
             player: "joueur1",
             winner: "",
+            nbGamer: this.props.nbGamer,
+            nbRound: this.props.nbRound,
         };
 
         this.setMove = this.setMove.bind(this);

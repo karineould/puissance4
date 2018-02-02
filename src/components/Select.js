@@ -24,7 +24,7 @@ export class Select extends React.Component {
         return (
             <div className="form-group">
                 <label htmlFor="exampleFormControlSelect1">{this.props.label}</label>
-                <select className="form-control" onChange={this.change} defaultValue="1">
+                <select className="form-control" onChange={this.change} defaultValue={this.props.default}>
                     {this.props.options.map( (i) =>
                         <option key={i} value={i}>{i}</option>
                     )}

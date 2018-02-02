@@ -2,7 +2,7 @@ import { ADD_GAMER } from './actions';
 import { ADD_ROUND } from './actions';
 
 const initialState = {
-    nbGamer : 0,
+    nbGamer : 1,
     nbRound: 1
 };
 

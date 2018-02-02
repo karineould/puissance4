@@ -1,9 +1,8 @@
 import React from 'react';
-// import Input from './Input';
 import Select from './Select';
+import {connect} from "react-redux";
 
-export default class Modal extends React.Component {
-
+export class Modal extends React.Component {
 
     render() {
        return (
@@ -22,17 +21,14 @@ export default class Modal extends React.Component {
                             label="Nombre de joueurs"
                             options={[1, 2]}
                             type="gamers"
+                            default={this.props.state.nbGamer}
                         />
-
-                        {/*<div className="form-row">*/}
-                            {/*<Input />*/}
-                            {/*<Input />*/}
-                        {/*</div>*/}
 
                         <Select
                             label="Nombre de parties"
                             options={[1, 2, 5]}
                             type="rounds"
+                            default={this.props.state.nbRound}
                         />
 
 
@@ -50,3 +46,9 @@ export default class Modal extends React.Component {
 
 }
 
+const mapStateToProps = function(state) {
+    return {state};
+};
+
+
+export default connect(mapStateToProps)(Modal)
