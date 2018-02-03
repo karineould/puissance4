@@ -1,34 +1,35 @@
 import { ADD_GAMER } from './actions';
 import { ADD_ROUND } from './actions';
+import { DISPLAY_PLAT } from './actions';
 
 const initialState = {
     nbGamer : 1,
-    nbRound: 1
+    nbRound: 1,
+    display: false
 };
 
 const gamers = (state = initialState, action) => {
-// export default function gamers (state = initialState, action) {
-    // if (typeof state === 'undefined') {
-    //     return initialState;
-    // }
 
     switch(action.type) {
         case ADD_GAMER:
-            // console.log(state);
-            // console.log(action);
             return Object.assign({}, state, {
                 nbGamer: action.nbGamer,
-                nbRound: state.nbRound
+                nbRound: state.nbRound,
+                display: state.display
             });
         case ADD_ROUND:
-            // console.log(state);
-            // console.log(action);
             return Object.assign({}, state, {
                 nbGamer: state.nbGamer,
-                nbRound: action.nbRound
+                nbRound: action.nbRound,
+                display: state.display
+            });
+        case DISPLAY_PLAT:
+            return Object.assign({}, state, {
+                nbGamer: state.nbGamer,
+                nbRound: state.nbRound,
+                display: action.display
             });
         default:
-            // console.log(state);
             return state;
     }
 };

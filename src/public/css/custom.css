@@ -431,15 +431,16 @@ img::-moz-selection {
 }
 
 table {
-    border: 3px blue outset;
-    background-color: blue;
+    /*text-align: center;*/
+    border: 3px green outset;
+    background-color: green;
 }
 table td {
     width: 2cm;
     height: 2cm;
     margin: 0px;
     padding: 0px;
-    border: 2px blue inset;
+    border: 2px green inset;
     border-radius: 2cm;
     background-color: white;
     cursor: pointer;

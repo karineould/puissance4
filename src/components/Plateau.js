@@ -141,14 +141,19 @@ export default class Plateau extends React.Component {
                 pieces={pieces} />
         }, this);
 
+        const style = {
+            display: this.props.hidden ? '' : 'none',
+            textAlign: 'center',
+        };
+
         return (
-            <div>
-                <p className={this.state.winner || this.state.player}>
+            <div style={style}>
+                <h2 className={this.state.winner || this.state.player}>
                     {this.state.winner
                         ? ("Gagnant : " + this.state.winner)
                         : ("A " + this.state.player + " de jouer")}
-                </p>
-                <table>
+                </h2>
+                <table align="center">
                     <tbody>
                         {rows}
                     </tbody>

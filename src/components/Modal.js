@@ -1,9 +1,19 @@
 import React from 'react';
 import Select from './Select';
 import {connect} from "react-redux";
+import {displayPlateau} from '../redux/actions';
 
 export class Modal extends React.Component {
 
+    constructor(props) {
+        super(props);
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(){
+        this.props.dispatch(displayPlateau());
+    }
     render() {
        return (
            <div id="myModal" className="modal fade">
@@ -31,12 +41,9 @@ export class Modal extends React.Component {
                             default={this.props.state.nbRound}
                         />
 
-
-
-
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary" data-dismiss="modal">Commencer</button>
+                        <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.handleClick}>Commencer</button>
                     </div>
                 </div>
             </div>
