@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5d21b561-9ea7-4b39-bec0-a4ead5bae03d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/components/Main.js" afterPath="$PROJECT_DIR$/src/components/Main.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal.js" afterPath="$PROJECT_DIR$/src/components/Modal.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Plateau.js" afterPath="$PROJECT_DIR$/src/components/Plateau.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/bootstrap.css" afterPath="$PROJECT_DIR$/src/public/css/bootstrap.css" />
-      <change beforePath="$PROJECT_DIR$/src/public/css/custom.css" afterPath="$PROJECT_DIR$/src/public/css/custom.css" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions.js" afterPath="$PROJECT_DIR$/src/redux/actions.js" />
-      <change beforePath="$PROJECT_DIR$/src/redux/index.js" afterPath="$PROJECT_DIR$/src/redux/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,8 +50,8 @@
       <file leaf-file-name="Main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-663">
-              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state relative-caret-position="367">
+              <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -159,6 +152,7 @@
       <find>btn-secondary</find>
       <find>header</find>
       <find>body</find>
+      <find>btn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -314,12 +308,12 @@
       <updated>1517406838162</updated>
       <workItem from="1517406839530" duration="1186000" />
       <workItem from="1517409019570" duration="547000" />
-      <workItem from="1517409790696" duration="37382000" />
+      <workItem from="1517409790696" duration="38496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39115000" />
+    <option name="totallyTimeSpent" value="40229000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -747,8 +741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        <state relative-caret-position="367">
+          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

@@ -24,38 +24,48 @@ export class Main extends React.Component {
             margin: '15%',
         };
 
-        const styleNbGamer = {
-            // left: 'left',
-            // width: '200px'
-        };
-
-        const styleNbRound = {
-            // width: '40%'
-        };
-
-        console.log(this.props.state.display);
-
-        const styleHiddenGameStarted ={
+        const styleHiddenGameStarted = {
             display: this.props.state.display ? '' : 'none',
             margin: '2em'
         };
 
-        const styleHiddenPlay ={
+        const styleHiddenPlay = {
             display: this.props.state.display ?  'none' : '' ,
         };
+
+        const styleSection = {
+            width: '80%',
+            height: '50px',
+            margin: 'auto',
+        };
+
+        const styleSectionLeft = {
+            width: '50%',
+            height: '50px',
+            float: 'left'
+        };
+
+        const styleSectionRight ={
+            marginLeft: '15%',
+            height: '50px',
+        };
+
+        let subTitle = '';
+        if (this.props.state.display) {
+            subTitle = (
+                <section style={styleSection}>
+                    <div style={styleSectionLeft}> Nombre de joueur : {this.props.state.nbGamer} </div>
+                    <div style={styleSectionRight}>Nombre de Partie : {this.props.state.nbRound} </div>
+                </section>
+            );
+        }
 
         return (
             <div style={style}>
                 <h1>Puissance 4</h1>
-                <br/>
 
-                <div style={styleNbGamer}>
-                    Nombre de joueur : {this.props.state.nbGamer}
-                </div>
-                <div style={styleNbRound}>
-                    Nombre de Partie : {this.props.state.nbRound}
-                </div>
                 <br/>
+                {subTitle}
 
                 <button
                     style={styleHiddenPlay}
@@ -74,14 +84,6 @@ export class Main extends React.Component {
                     &nbsp;&nbsp;&nbsp;&nbsp;PAUSE&nbsp;&nbsp;&nbsp;&nbsp;
                 </button>
 
-                <button
-                    style={styleHiddenGameStarted}
-                    className="btn btn-danger"
-                    onClick={this.restart}
-                >
-                    &nbsp;&nbsp;&nbsp;&nbsp;RECOMMENCER&nbsp;&nbsp;&nbsp;&nbsp;
-                </button>
-
                 <Modal id="modalConf"/>
                 <Modal id="modalPause"/>
 
@@ -92,6 +94,14 @@ export class Main extends React.Component {
                     nbRound={this.props.state.nbRound}
                     hidden={this.props.state.display}
                 />
+
+                <button
+                    style={styleHiddenGameStarted}
+                    className="btn btn-danger"
+                    onClick={this.restart}
+                >
+                    &nbsp;&nbsp;&nbsp;&nbsp;RECOMMENCER&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
 
             </div>
         );
