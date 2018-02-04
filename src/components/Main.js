@@ -3,8 +3,20 @@ import Modal from './Modal'
 import Plateau from "./Plateau";
 import { connect } from 'react-redux';
 import { gamers } from "../redux";
+import { reset } from '../redux/actions';
 
 export class Main extends React.Component {
+
+
+    constructor(props) {
+        super(props);
+
+        this.restart = this.restart.bind(this);
+    }
+
+    restart(){
+        this.props.dispatch(reset());
+    }
 
     render(){
         const style = {
@@ -22,6 +34,16 @@ export class Main extends React.Component {
         };
 
         console.log(this.props.state.display);
+
+        const styleHiddenGameStarted ={
+            display: this.props.state.display ? '' : 'none',
+            margin: '2em'
+        };
+
+        const styleHiddenPlay ={
+            display: this.props.state.display ?  'none' : '' ,
+        };
+
         return (
             <div style={style}>
                 <h1>Puissance 4</h1>
@@ -36,12 +58,32 @@ export class Main extends React.Component {
                 <br/>
 
                 <button
-                    className="btn btn-primary"
-                    data-target="#myModal"
+                    style={styleHiddenPlay}
+                    className="btn btn-success"
+                    data-target="#modalConf"
                     data-toggle="modal">
-                    &nbsp;&nbsp;PLAY&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;PLAY&nbsp;&nbsp;&nbsp;&nbsp;
                 </button>
-                <Modal />
+
+                <button
+                    style={styleHiddenGameStarted}
+                    className="btn btn-primary"
+                    data-target="#modalPause"
+                    data-toggle="modal"
+                >
+                    &nbsp;&nbsp;&nbsp;&nbsp;PAUSE&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+
+                <button
+                    style={styleHiddenGameStarted}
+                    className="btn btn-danger"
+                    onClick={this.restart}
+                >
+                    &nbsp;&nbsp;&nbsp;&nbsp;RECOMMENCER&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+
+                <Modal id="modalConf"/>
+                <Modal id="modalPause"/>
 
                 <Plateau
                     width={6}

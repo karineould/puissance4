@@ -14,41 +14,67 @@ export class Modal extends React.Component {
     handleClick(){
         this.props.dispatch(displayPlateau());
     }
+
+
     render() {
-       return (
-           <div id="myModal" className="modal fade">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 className="modal-title">Configuration du jeu</h5>
+
+        const styleText = {
+            color: 'black'
+        };
+
+        if (this.props.id === "modalConf") {
+            return (
+                <div id={this.props.id} className="modal fade" style={styleText}>
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5 className="modal-title">Configuration du jeu</h5>
+                            </div>
+                            <div className="modal-body">
+
+                                <Select
+                                    label="Nombre de joueurs"
+                                    options={[1, 2]}
+                                    type="gamers"
+                                    default={this.props.state.nbGamer}
+                                />
+
+                                <Select
+                                    label="Nombre de parties"
+                                    options={[1, 2, 5]}
+                                    type="rounds"
+                                    default={this.props.state.nbRound}
+                                />
+
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.handleClick}>Commencer</button>
+                            </div>
+                        </div>
                     </div>
-                    <div className="modal-body">
+                </div>
+            );
+        }
 
-                        <Select
-                            label="Nombre de joueurs"
-                            options={[1, 2]}
-                            type="gamers"
-                            default={this.props.state.nbGamer}
-                        />
-
-                        <Select
-                            label="Nombre de parties"
-                            options={[1, 2, 5]}
-                            type="rounds"
-                            default={this.props.state.nbRound}
-                        />
-
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.handleClick}>Commencer</button>
+        return (
+            <div id={this.props.id} className="modal fade" style={styleText}>
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Pause</h5>
+                        </div>
+                        <div className="modal-body">
+                            <button type="button" className="btn btn-primary" data-dismiss="modal" >Reprendre</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-       );
+        );
+
+
     }
 
 }

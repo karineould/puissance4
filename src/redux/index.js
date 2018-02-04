@@ -1,6 +1,7 @@
 import { ADD_GAMER } from './actions';
 import { ADD_ROUND } from './actions';
 import { DISPLAY_PLAT } from './actions';
+import { RESET } from './actions';
 
 const initialState = {
     nbGamer : 1,
@@ -27,6 +28,12 @@ const gamers = (state = initialState, action) => {
             return Object.assign({}, state, {
                 nbGamer: state.nbGamer,
                 nbRound: state.nbRound,
+                display: action.display
+            });
+        case RESET:
+            return Object.assign({}, state, {
+                nbGamer: action.nbGamer,
+                nbRound: action.nbRound,
                 display: action.display
             });
         default:

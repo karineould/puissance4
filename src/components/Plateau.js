@@ -50,21 +50,21 @@ export default class Plateau extends React.Component {
         let count, shift;
         let i;
 
-        // Horizontal
+        // Horizontal count
         count = 0;
         for (i = 0; i < cols; i++) {
             count = this.newCount(plateau, player, row, i, count);
             if (count >= 4) return player;
         }
 
-        // Vertical
+        // Vertical count
         count = 0;
         for ( i = 0; i < rows; i++) {
             count = this.newCount(plateau, player, i, col, count);
             if (count >= 4) return player;
         }
 
-        // Diagonal
+        // Diagonal count
         count = 0;
         shift = row - col;
         for (i = Math.max(shift, 0); i < Math.min(rows, cols + shift); i++) {
@@ -72,7 +72,7 @@ export default class Plateau extends React.Component {
             if (count >= 4) return player;
         }
 
-        // Anti-diagonal
+        // Reverse diagonal count
         count = 0;
         shift = row + col;
         for (i = Math.max(shift - cols + 1, 0); i < Math.min(rows, shift + 1); i++) {
@@ -119,7 +119,11 @@ export default class Plateau extends React.Component {
 
         let move = this.setMove(plateau, player, row, column);
         let updatedPlateau = this.setPlateau(plateau, player, move);
-        let updatedPlayer = this.togglePlayer(player);
+        // let updatedPlayer = player;
+        // if (this.state.nbGamer > 1){
+        //     updatedPlayer = this.togglePlayer(player);
+        // }
+        let updatedPlayer =this.togglePlayer(player);
         let winner = this.checkIfWinner(updatedPlateau, player, move);
 
         if (winner)
