@@ -12,12 +12,7 @@ export class Select extends React.Component {
     }
 
     change(e) {
-        if (this.props.type === "gamers"){
-            this.props.dispatch(addGamer(e.target.value));
-        }
-        else {
-            this.props.dispatch(addRound(e.target.value));
-        }
+        this.props.dispatch(addRound(e.target.value));
     }
 
     render() {

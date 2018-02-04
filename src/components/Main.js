@@ -33,31 +33,23 @@ export class Main extends React.Component {
             display: this.props.state.display ?  'none' : '' ,
         };
 
-        const styleSection = {
-            width: '80%',
-            height: '50px',
-            margin: 'auto',
-        };
-
-        const styleSectionLeft = {
-            width: '50%',
-            height: '50px',
-            float: 'left'
-        };
-
-        const styleSectionRight ={
-            marginLeft: '15%',
-            height: '50px',
-        };
-
         let subTitle = '';
         if (this.props.state.display) {
             subTitle = (
-                <section style={styleSection}>
-                    <div style={styleSectionLeft}> Nombre de joueur : {this.props.state.nbGamer} </div>
-                    <div style={styleSectionRight}>Nombre de Partie : {this.props.state.nbRound} </div>
+                <section >
+                    <h3>Nombre de Partie : {this.props.state.nbRound} </h3>
                 </section>
             );
+        }
+
+        let plateau ='';
+        if (this.props.state.display) {
+            plateau = <Plateau
+                width={6}
+                height={7}
+                nbRound={this.props.state.nbRound}
+                hidden={this.props.state.display}
+            />
         }
 
         return (
@@ -87,13 +79,8 @@ export class Main extends React.Component {
                 <Modal id="modalConf"/>
                 <Modal id="modalPause"/>
 
-                <Plateau
-                    width={6}
-                    height={7}
-                    nbGamer={this.props.state.nbGamer}
-                    nbRound={this.props.state.nbRound}
-                    hidden={this.props.state.display}
-                />
+
+                {plateau}
 
                 <button
                     style={styleHiddenGameStarted}

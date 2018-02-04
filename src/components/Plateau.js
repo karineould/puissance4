@@ -141,15 +141,15 @@ export class Plateau extends React.Component {
 
             if (this.state.currentRound === parseInt(this.props.nbRound)) {
                 if (this.state.playerPoints["joueur1"] > this.state.playerPoints["joueur2"]){
-                    winner = "joueur1";
+                    winner = this.props.state.joueur1;
                 } else if (this.state.playerPoints["joueur1"] === this.state.playerPoints["joueur2"]) {
                     winner = "Egalité";
                 } else {
-                    winner = "joueur2";
+                    winner = this.props.state.joueur2;
                 }
 
                 setTimeout(function () {
-                    alert(winner)
+                    alert("Le gagnant est : " + winner + "!!!")
                 }, 0);
 
                 this.props.dispatch(reset());
@@ -173,17 +173,19 @@ export class Plateau extends React.Component {
                 pieces={pieces} />
         }, this);
 
-        const style = {
-            display: this.props.hidden ? '' : 'none',
-            textAlign: 'center',
-        };
 
+        let joueurName = "";
+        if (this.state.winner){
+            joueurName = this.state.winner === "joueur1" ? this.props.state.joueur1 : this.props.state.joueur2
+        } else {
+            joueurName = this.state.player === "joueur1" ? this.props.state.joueur1 : this.props.state.joueur2
+        }
         return (
-            <div style={style}>
-                <h2 className={this.state.winner || this.state.player}>
+            <div>
+                <h2 className={joueurName}>
                     {this.state.winner
-                        ? ("Gagnant : " + this.state.winner)
-                        : ("A " + this.state.player + " de jouer")}
+                        ? ("Gagnant : " + joueurName)
+                        : ("A " + joueurName + " de jouer")}
                 </h2>
                 <table align="center">
                     <tbody>
@@ -196,4 +198,8 @@ export class Plateau extends React.Component {
 
 }
 
-export default connect()(Plateau)
+const mapStateToProps = function(state) {
+    return {state};
+};
+
+export default connect(mapStateToProps)(Plateau)
