@@ -1,7 +1,9 @@
 import React from 'react';
 import Row from './Row';
+import { reset } from '../redux/actions';
+import {connect} from "react-redux";
 
-export default class Plateau extends React.Component {
+export class Plateau extends React.Component {
 
     constructor(props){
         super(props);
@@ -10,8 +12,8 @@ export default class Plateau extends React.Component {
             plateau: this.newPlateau(this.props.width, this.props.height),
             player: "joueur1",
             winner: "",
-            nbGamer: this.props.nbGamer,
-            nbRound: this.props.nbRound,
+            playerPoints: {"joueur1": 0, "joueur2": 0},
+            currentRound: 1,
         };
 
         this.setMove = this.setMove.bind(this);
@@ -21,6 +23,7 @@ export default class Plateau extends React.Component {
         this.setPlateau = this.setPlateau.bind(this);
         this.newPlateau = this.newPlateau.bind(this);
         this.newCount = this.newCount.bind(this);
+        this.countPlayerPoints = this.countPlayerPoints.bind(this);
     }
 
     setMove(plateau, player, row, col){
@@ -40,6 +43,17 @@ export default class Plateau extends React.Component {
         else
             return 0;
     };
+
+    countPlayerPoints(player){
+        let newPlayerPoints = this.state.playerPoints;
+        newPlayerPoints[player] = newPlayerPoints[player] + 1;
+
+        this.setState({
+            currentRound: this.state.currentRound + 1,
+            playerPoints : newPlayerPoints
+        });
+
+    }
 
     checkIfWinner(plateau, player, move){
         let rows = plateau.length;
@@ -119,15 +133,29 @@ export default class Plateau extends React.Component {
 
         let move = this.setMove(plateau, player, row, column);
         let updatedPlateau = this.setPlateau(plateau, player, move);
-        // let updatedPlayer = player;
-        // if (this.state.nbGamer > 1){
-        //     updatedPlayer = this.togglePlayer(player);
-        // }
-        let updatedPlayer =this.togglePlayer(player);
+        let updatedPlayer = this.togglePlayer(player);
         let winner = this.checkIfWinner(updatedPlateau, player, move);
 
-        if (winner)
-            setTimeout(function() { alert(winner) }, 0);
+        if (winner) {
+            this.countPlayerPoints(winner);
+
+            if (this.state.currentRound === parseInt(this.props.nbRound)) {
+                if (this.state.playerPoints["joueur1"] > this.state.playerPoints["joueur2"]){
+                    winner = "joueur1";
+                } else if (this.state.playerPoints["joueur1"] === this.state.playerPoints["joueur2"]) {
+                    winner = "Egalité";
+                } else {
+                    winner = "joueur2";
+                }
+
+                setTimeout(function () {
+                    alert(winner)
+                }, 0);
+
+                this.props.dispatch(reset());
+            }
+        }
+
 
         this.setState({
             plateau: updatedPlateau,
@@ -167,3 +195,5 @@ export default class Plateau extends React.Component {
     }
 
 }
+
+export default connect()(Plateau)

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d21b561-9ea7-4b39-bec0-a4ead5bae03d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Main.js" afterPath="$PROJECT_DIR$/src/components/Main.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/Plateau.js" afterPath="$PROJECT_DIR$/src/components/Plateau.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            <state relative-caret-position="575">
+              <caret line="117" column="45" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -69,20 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/public/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="1087" column="14" lean-forward="false" selection-start-line="1087" selection-start-column="14" selection-end-line="1087" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Modal.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Modal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
+            <state relative-caret-position="384">
               <caret line="62" column="75" lean-forward="false" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -125,14 +115,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Plateau.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Plateau.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Plateau.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-874">
+              <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,15 +132,17 @@
       <find>back</find>
       <find>getDefaultSize</find>
       <find>count</find>
-      <find>newPlateau</find>
       <find>getCurrentWinner</find>
       <find>togglePlayer</find>
-      <find>checkIfWinner</find>
       <find>btn-primary</find>
       <find>btn-secondary</find>
       <find>header</find>
-      <find>body</find>
       <find>btn</find>
+      <find>nbGamer</find>
+      <find>body</find>
+      <find>alert</find>
+      <find>newPlateau</find>
+      <find>checkIfWinner</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/redux/gamers/index.js" />
         <option value="$PROJECT_DIR$/src/app.js" />
         <option value="$PROJECT_DIR$/src/components/Select.js" />
-        <option value="$PROJECT_DIR$/src/components/Plateau.js" />
         <option value="$PROJECT_DIR$/src/public/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/public/css/custom.css" />
@@ -188,6 +177,7 @@
         <option value="$PROJECT_DIR$/src/redux/actions.js" />
         <option value="$PROJECT_DIR$/src/redux/index.js" />
         <option value="$PROJECT_DIR$/src/components/Main.js" />
+        <option value="$PROJECT_DIR$/src/components/Plateau.js" />
       </list>
     </option>
   </component>
@@ -308,12 +298,12 @@
       <updated>1517406838162</updated>
       <workItem from="1517406839530" duration="1186000" />
       <workItem from="1517409019570" duration="547000" />
-      <workItem from="1517409790696" duration="38496000" />
+      <workItem from="1517409790696" duration="42763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40229000" />
+    <option name="totallyTimeSpent" value="44496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -667,47 +657,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Plateau.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="148" column="53" lean-forward="true" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="1087" column="14" lean-forward="false" selection-start-line="1087" selection-start-column="14" selection-end-line="1087" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="13" column="38" lean-forward="true" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/public/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="62" column="75" lean-forward="false" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,13 +693,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Main.js">
+    <entry file="file://$PROJECT_DIR$/src/public/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+        <state relative-caret-position="217">
+          <caret line="899" column="11" lean-forward="false" selection-start-line="899" selection-start-column="11" selection-end-line="899" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/public/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="62" column="75" lean-forward="false" selection-start-line="62" selection-start-column="75" selection-end-line="62" selection-end-column="75" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="117" column="45" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Plateau.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-874">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
