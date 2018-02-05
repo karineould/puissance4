@@ -33,6 +33,10 @@ export class Main extends React.Component {
             display: this.props.state.display ?  'none' : '' ,
         };
 
+        const styleGagnant = {
+            display: 'none'
+        };
+
         let subTitle = '';
         if (this.props.state.display) {
             subTitle = (
@@ -51,6 +55,12 @@ export class Main extends React.Component {
                 hidden={this.props.state.display}
             />
         }
+
+        //display the winner modal
+        if (this.props.state.gagnant != "") {
+            document.getElementById('showWinner').click();
+        }
+
 
         return (
             <div style={style}>
@@ -76,9 +86,18 @@ export class Main extends React.Component {
                     &nbsp;&nbsp;&nbsp;&nbsp;PAUSE&nbsp;&nbsp;&nbsp;&nbsp;
                 </button>
 
+                <button
+                    style={styleGagnant}
+                    id="showWinner"
+                    data-target="#modalGagnant"
+                    data-toggle="modal"
+                >
+                    &nbsp;&nbsp;&nbsp;&nbsp;RECOMMENCER&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+
                 <Modal id="modalConf"/>
                 <Modal id="modalPause"/>
-
+                <Modal id="modalGagnant"/>
 
                 {plateau}
 

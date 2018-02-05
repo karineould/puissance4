@@ -1,6 +1,6 @@
 import React from 'react';
 import Row from './Row';
-import { reset } from '../redux/actions';
+import {setGagnant} from '../redux/actions';
 import {connect} from "react-redux";
 
 export class Plateau extends React.Component {
@@ -148,11 +148,7 @@ export class Plateau extends React.Component {
                     winner = this.props.state.joueur2;
                 }
 
-                setTimeout(function () {
-                    alert("Le gagnant est : " + winner + "!!!")
-                }, 0);
-
-                this.props.dispatch(reset());
+                this.props.dispatch(setGagnant(winner));
             }
         }
 
@@ -180,6 +176,8 @@ export class Plateau extends React.Component {
         } else {
             joueurName = this.state.player === "joueur1" ? this.props.state.joueur1 : this.props.state.joueur2
         }
+
+
         return (
             <div>
                 <h2 className={joueurName}>

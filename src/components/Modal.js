@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from './Select';
 import {connect} from "react-redux";
-import {displayPlateau} from '../redux/actions';
+import {displayPlateau, reset} from '../redux/actions';
 import Input from "./Input";
 
 export class Modal extends React.Component {
@@ -10,12 +10,16 @@ export class Modal extends React.Component {
         super(props);
 
         this.handleClick = this.handleClick.bind(this);
+        this.restart = this.restart.bind(this);
     }
 
     handleClick(){
         this.props.dispatch(displayPlateau());
     }
 
+    restart(){
+        this.props.dispatch(reset());
+    }
 
     render() {
 
@@ -59,15 +63,34 @@ export class Modal extends React.Component {
             );
         }
 
+        if (this.props.id === "modalPause"){
+            return (
+                <div id={this.props.id} className="modal fade" style={styleText}>
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Pause</h5>
+                            </div>
+                            <div className="modal-body">
+                                <button type="button" className="btn btn-primary" data-dismiss="modal" >Reprendre</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        let winner = this.props.state.gagnant;
+
         return (
             <div id={this.props.id} className="modal fade" style={styleText}>
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title">Pause</h5>
+                            <h5 className="modal-title">Le gagnant est : {winner}</h5>
                         </div>
                         <div className="modal-body">
-                            <button type="button" className="btn btn-primary" data-dismiss="modal" >Reprendre</button>
+                            <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.restart}>OK</button>
                         </div>
                     </div>
                 </div>
